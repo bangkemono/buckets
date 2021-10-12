@@ -1,6 +1,4 @@
-import subprocess
-import sys
-import tempfile
+import subprocess, sys, tempfile
 from Cython.Compiler import Main, CmdLine, Options
 
 in_file_name = sys.argv[1]
@@ -14,7 +12,7 @@ temp_py_file.flush()
 Main.Options.embed = 'main'
 res = Main.compile_single(temp_py_file.name, Main.CompilationOptions(), '')
 
-gcc_cmd = 'gcc -fPIC -O2 %s -I/usr/include/python3.8 -L/usr/lib/python3.8 -lpython3.8 -o %s' % (res.c_file, out_file_name)
+gcc_cmd = 'gcc -fPIC -O2 %s -I/usr/include/python3.9 -L/usr/lib/python3.9 -lpython3.9 -o %s' % (res.c_file, out_file_name)
 
 print(gcc_cmd)
 assert 0 == subprocess.check_call(gcc_cmd.split(' '))

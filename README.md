@@ -2,7 +2,8 @@
 Buckets is a list making program made with python for linux
 
 ## BUILD DEPENDENCIES
-* Python 3
+* Python 3.9
+* PIP
 * Cython
 * GCC
 

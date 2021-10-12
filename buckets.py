@@ -2,9 +2,9 @@
 import os, time, pwd
 
 USERNAME = pwd.getpwuid(os.getuid())[0]
-
+CONFIG_PATH = f"/home/{USERNAME}/.config/"
 BUILD_PATH = "/usr/local/bin/"
-B_PATH = f"/home/{USERNAME}/.config/buckets.txt"
+B_PATH = CONFIG_PATH + "buckets.txt"
 
 buckets_list = ["A. OPEN BUCKETS", "B. ADD BUCKETS", "C. EXIT BUCKETS"]
 
@@ -18,10 +18,10 @@ def switchCase(args):
 def check():
 
     # basically does an $ls and the further process is to check whether buckets.txt is present
-    items = [files for files in os.listdir(path=BUILD_PATH)] 
+    items = [files for files in os.listdir(path=CONFIG_PATH)] 
 
     if "buckets.txt" in items:
-        return main()
+        main()
     else: 
         create_buckets = str(input("Buckets Text File Not Found, would you like to create it? (Y/n) "))
 
@@ -32,16 +32,15 @@ def check():
         else:
             with open(B_PATH, "x") as f:
                 f.write("(Based on Priorities)\n")
-            return main()
+            main()
 
 def main():
 
     os.system('clear')  # clears the screen, obviously 
 
     print("---------------------------------------------------------\n")
-    print("       BUCKETS - PYTHONIC TERMINAL LIST-MAKING APP       \n")
-    print("                   VERSION - 0.6 ALPHA                   ")
-    print("                     By Stritesb76                       \n")
+    print("              BUCKETS - TODO LISTS IN PYTHON             \n")
+    print("                      by bangkemono                      \n")
     print("---------------------------------------------------------")
 
     for options in buckets_list:
