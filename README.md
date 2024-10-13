@@ -12,8 +12,8 @@ The installation is very simple, you only need to do this:
 ```
 git clone https://github.com/bangkemono/buckets
 cd buckets
-python compile.py buckets.py
-sudo mv buckets /usr/local/bin/buckets
+python3.9 setup.py build_ext --inplace
+sudo mv buckets /usr/local/bin/
 ```
 
 then you're all good to go
