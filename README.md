@@ -2,17 +2,19 @@
 Buckets is a list making program made with python for linux
 
 ## BUILD DEPENDENCIES
-* Python 3.9
-* PIP
-* Cython
-* GCC
+* python3-dev
+* pip
+* setuptools
+* cython
+* gcc
 
 ## INSTALLATION
 The installation is very simple, you only need to do this:
 ```
 git clone https://github.com/bangkemono/buckets
 cd buckets
-python3.9 setup.py build_ext --inplace
+cython --embed -o buckets.c buckets.py
+gcc -Os $(python3-config --includes) buckets.c $(python3-config --ldflags --embed) -o buckets
 sudo mv buckets /usr/local/bin/
 ```
 

@@ -1,0 +1,7 @@
+buckets
+buckets.c
+venv/
+venv/*
+.venv/
+env/
+.env/
